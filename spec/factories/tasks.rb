@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :task do
     title { 'MyString' }
-    status { 1 }
-    user_id { 1 }
+    status { Task::TO_DO }
+    association :user
   end
 end
