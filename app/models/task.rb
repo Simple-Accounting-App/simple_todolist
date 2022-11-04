@@ -10,7 +10,13 @@ class Task < ApplicationRecord
     IN_PROGRESS => 'In progress',
     DONE => 'Done'
   }.freeze
-  
+
+  validates :title, presence: true
+  validates :status, inclusion: {
+    in: STATUSES.keys,
+    message: "must be one of these options: #{STATUSES.values.join ', '}"
+  }
+
   def status_name
     STATUSES[status]
   end
