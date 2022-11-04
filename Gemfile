@@ -66,5 +66,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  # Ruby static code analyzer (a.k.a. linter) and code formatter
+  gem 'rubocop', '~> 1.36', require: false
 end
 
