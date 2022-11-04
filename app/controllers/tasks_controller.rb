@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
+  before_action :set_task_statuses, only: %i[new edit create update]
 
   # GET /tasks or /tasks.json
   def index
@@ -16,7 +17,8 @@ class TasksController < ApplicationController
   end
 
   # GET /tasks/1/edit
-  def edit; end
+  def edit
+  end
 
   # POST /tasks or /tasks.json
   def create
@@ -61,6 +63,10 @@ class TasksController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_task
     @task = Task.find(params[:id])
+  end
+
+  def set_task_statuses
+    @task_statuses = Task::STATUSES
   end
 
   # Only allow a list of trusted parameters through.
