@@ -2,16 +2,17 @@ require 'rails_helper'
 
 RSpec.describe 'tasks/index', type: :view do
   before(:each) do
+    @user = FactoryBot.create(:user)
     assign(:tasks, [
              Task.create!(
                title: 'Title',
                status: 2,
-               user_id: 3
+               user: @user
              ),
              Task.create!(
                title: 'Title',
                status: 2,
-               user_id: 3
+               user: @user
              )
            ])
   end
@@ -21,6 +22,5 @@ RSpec.describe 'tasks/index', type: :view do
     # No longer functional default test
     # assert_select 'tr>td', text: 'Title'.to_s, count: 2
     # assert_select 'tr>td', text: 2.to_s, count: 2
-    # assert_select 'tr>td', text: 3.to_s, count: 2
   end
 end

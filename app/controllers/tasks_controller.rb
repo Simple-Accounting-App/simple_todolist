@@ -3,7 +3,8 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.all
+    @user = User::DEFAULT_USER
+    @tasks = Task.where(user: @user)
   end
 
   # GET /tasks/1 or /tasks/1.json
@@ -19,7 +20,7 @@ class TasksController < ApplicationController
 
   # POST /tasks or /tasks.json
   def create
-    @task = Task.new(task_params)
+    @task = User::DEFAULT_USER.tasks.new(task_params)
 
     respond_to do |format|
       if @task.save
