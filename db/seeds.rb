@@ -5,6 +5,21 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-User.create!(
+first_user = User.create!(
   name: 'Astérix'
+)
+
+Task.create!(
+  [
+    {
+      title: 'Protect the village',
+      status: Task::IN_PROGRESS,
+      user: first_user
+    },
+    {
+      title: "Go to Panoramix hut to discuss Obelix's magical potion craving",
+      status: Task::TO_DO,
+      user: first_user
+    }
+  ]
 )
