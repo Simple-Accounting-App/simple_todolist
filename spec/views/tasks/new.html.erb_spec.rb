@@ -16,8 +16,6 @@ RSpec.describe 'tasks/new', type: :view do
       assert_select 'input[name=?]', 'task[title]'
 
       assert_select 'input[name=?]', 'task[status]'
-
-      assert_select 'input[name=?]', 'task[user_id]'
     end
   end
 end
