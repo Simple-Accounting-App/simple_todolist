@@ -11,4 +11,7 @@ class Task < ApplicationRecord
     DONE => 'Done'
   }.freeze
   
+  def status_name
+    STATUSES[status]
+  end
 end
