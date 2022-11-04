@@ -2,9 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'tasks/new', type: :view do
   before(:each) do
+    @task_statuses = Task::STATUSES
     assign(:task, Task.new(
                     title: 'MyString',
-                    status: 1,
+                    status: Task::TO_DO,
                     user_id: 1
                   ))
   end
@@ -15,7 +16,7 @@ RSpec.describe 'tasks/new', type: :view do
     assert_select 'form[action=?][method=?]', tasks_path, 'post' do
       assert_select 'input[name=?]', 'task[title]'
 
-      assert_select 'input[name=?]', 'task[status]'
+      assert_select 'select[name=?]', 'task[status]'
     end
   end
 end
