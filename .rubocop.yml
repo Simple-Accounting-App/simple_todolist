@@ -14,3 +14,9 @@ Style/Documentation:
 
 Style/GlobalStdStream:
   Enabled: false
+
+Lint/ScriptPermission:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
