@@ -1,6 +1,8 @@
 # Enabling the new cops
 AllCops:
   NewCops: enable
+  Exclude:
+    - db/schema.rb
 
 # Adding exceptions to Rubocop's offenses
 Layout/EndOfLine:
